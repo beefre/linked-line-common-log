@@ -8,7 +8,7 @@ public class LinkedLineController {
 	
 	@GetMapping(value = "/hello")
 	public String hello() {
-		return "hello world";
+		return "Hello World";
 	}
 
 }
