@@ -31,7 +31,7 @@ public class LinkedLineController {
 	public ResponseEntity<Line> create(@RequestBody Line line) {
 
 //		File file = new File("D:\\demo\\challenge.csv");
-		File file = new File("challenge.csv");
+		File file = new File("/var/tmp/challenge.csv");
 		boolean appendDataFlag = (createNewLog(file) ? false : true);
 		writeLog(file,line,appendDataFlag);
 			
@@ -50,9 +50,7 @@ public class LinkedLineController {
 			StringBuilder stbLine = new StringBuilder();
 			stbLine.append(line.getPreviousHash()).append(",").append(line.getMessage()).append(",").append(line.getNonce()).append("\n");
 			out.write(stbLine.toString());
-		}
-
-		catch (IOException e) {
+		}catch (IOException e) {
 			System.err.println("Error: " + e.getMessage());
 		}
 
