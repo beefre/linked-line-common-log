@@ -4,6 +4,7 @@ import java.io.File;
 import java.net.URI;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -20,6 +21,9 @@ public class LinkedLineController {
 	@Autowired
 	FileLinkedLineService fileLinkedLineService;
 	
+	@Value("${file.name.location}")
+	private String location;
+	
 	@PostMapping(value = "/create")
 	public ResponseEntity<Line> create(@RequestBody Line line) {
 		writeLog(line);
@@ -27,13 +31,12 @@ public class LinkedLineController {
 	}
 
 	private void writeLog(Line line) {
-		File file = new File("D:\\demo\\challenge.csv");
+		File file = new File(location);
 		boolean appendDataFlag = (fileLinkedLineService.createFile(file) ? Constants.NOT_APPEND : Constants.APPEND);
 		StringBuilder stbLine = new StringBuilder();
 		
 		line.setPreviousHash(fileLinkedLineService.getPreviousHash(file));
 		fileLinkedLineService.generateHash(line, appendDataFlag);
-		
 		
 		while(appendDataFlag && Util.notGoldenHash(line)) {
 			line.incrementNonce();
