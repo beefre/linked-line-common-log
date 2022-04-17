@@ -1,7 +1,5 @@
 package com.atixlabs.challenge.linkedlinecommonlog.data;
 
-import com.atixlabs.challenge.linkedlinecommonlog.controller.service.util.SHA256Helper;
-
 public class Line {
 	
 	private String previousHash;
@@ -12,15 +10,8 @@ public class Line {
    public Line(String previousHash, String message) {
 	   this.previousHash = previousHash;
 	   this.message = message;
-	   
    }
    
-   public void generateHash() {
-		String dataToHash = this.previousHash+this.message+this.nonce;
-		String hashValue = SHA256Helper.generateHash(dataToHash);
-		this.hash = hashValue;
-	}
-	
 	public String getHash() {
 		return this.hash;
 	}

@@ -1,8 +1,14 @@
 package com.atixlabs.challenge.linkedlinecommonlog.controller.service.util;
 
+import java.lang.invoke.MethodHandles;
 import java.security.MessageDigest;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 public class SHA256Helper {
+	
+	private static final Logger LOGGER = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
 
 	public static String generateHash(String data) {
 		try {
@@ -21,6 +27,7 @@ public class SHA256Helper {
 			return hexadecimalString.toString();
 			
 		} catch (Exception e) {
+			LOGGER.error("Error on creating Hash: "+e.getMessage());
 			throw new RuntimeException(e);
 		}
 	}

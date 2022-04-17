@@ -9,7 +9,7 @@ public interface FileLinkedLineService {
 	
 	public boolean createFile(File file);
 	
-	public void writeLogLine(File file, boolean appendDataFlag, StringBuilder stbLine);
+	public void writeLogLine(File file, boolean appendDataFlag, String strLine);
 
 	public String getPreviousHash(File file);
 	
