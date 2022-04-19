@@ -20,6 +20,7 @@ And adding a request body as follows:
 Image that ilustrates a POST request configured to make a call to the endpoint
 
 
+
 OPTION 2
 The second option is cloning this repository into your local machine and run it locally.
 
