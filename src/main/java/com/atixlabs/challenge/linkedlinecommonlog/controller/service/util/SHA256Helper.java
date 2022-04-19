@@ -28,7 +28,7 @@ public class SHA256Helper {
 			
 		} catch (Exception e) {
 			LOGGER.error("Error on creating Hash: "+e.getMessage());
-			throw new RuntimeException(e);
+			return null;
 		}
 	}
 }

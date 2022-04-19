@@ -26,6 +26,10 @@ public class LinkedLineController {
 
 	@Value("${file.name.location}")
 	private String location;
+	
+	public LinkedLineController(FileLinkedLineService fileLinkedLineService) {
+		this.fileLinkedLineService = fileLinkedLineService;
+	}
 
 	@PostMapping(value = "/create")
 	public ResponseEntity<Line> create(@RequestBody Line line) {
@@ -33,12 +37,12 @@ public class LinkedLineController {
 		return ResponseEntity.created(URI.create(String.format("/lines/%s", line.getMessage()))).body(line);
 	}
 
-	@GetMapping(value = "/lines")
-	public @ResponseBody ResponseEntity<Line> lines() {
-//		List<JSONObject> entities = new ArrayList<JSONObject>();
-
-		return new ResponseEntity<Line>(HttpStatus.OK);
-	}
+//	@GetMapping(value = "/lines")
+//	public @ResponseBody ResponseEntity<Line> lines() {
+////		List<JSONObject> entities = new ArrayList<JSONObject>();
+//
+//		return new ResponseEntity<Line>(HttpStatus.OK);
+//	} 
 
 	private void writeLog(Line line) {
 		File file = new File(location);

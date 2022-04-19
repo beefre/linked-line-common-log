@@ -20,6 +20,8 @@ import com.atixlabs.challenge.linkedlinecommonlog.data.Line;
 public class FileLinkedLineServiceImpl implements FileLinkedLineService {
 
 	private static final Logger LOGGER = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
+	
+	
 
 	@Override
 	public boolean createFile(File file) {
