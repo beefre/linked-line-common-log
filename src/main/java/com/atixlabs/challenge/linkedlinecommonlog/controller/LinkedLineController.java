@@ -5,12 +5,9 @@ import java.net.URI;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.atixlabs.challenge.linkedlinecommonlog.controller.service.util.Constants;
@@ -31,18 +28,11 @@ public class LinkedLineController {
 		this.fileLinkedLineService = fileLinkedLineService;
 	}
 
-	@PostMapping(value = "/create")
+	@PostMapping(value = "/log-lines")
 	public ResponseEntity<Line> create(@RequestBody Line line) {
 		writeLog(line);
 		return ResponseEntity.created(URI.create(String.format("/lines/%s", line.getMessage()))).body(line); 
 	}
-
-//	@GetMapping(value = "/lines")
-//	public @ResponseBody ResponseEntity<Line> lines() {
-////		List<JSONObject> entities = new ArrayList<JSONObject>();
-//
-//		return new ResponseEntity<Line>(HttpStatus.OK);
-//	} 
 
 	private void writeLog(Line line) {
 		File file = new File(location);
