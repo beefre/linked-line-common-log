@@ -78,7 +78,8 @@ public class FileLinkedLineServiceImpl implements FileLinkedLineService {
 		if (appendData) {
 			setNewHash(line);
 		} else {
-			line.setHash(Constants.GENESIS_PREV_HASH);
+			line.setHash(Constants.GENESIS_PREV_HASH); 
+			line.incrementNonce();
 		}
 	}
 

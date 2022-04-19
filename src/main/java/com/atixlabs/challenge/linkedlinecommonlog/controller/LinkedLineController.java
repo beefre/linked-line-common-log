@@ -34,7 +34,7 @@ public class LinkedLineController {
 	@PostMapping(value = "/create")
 	public ResponseEntity<Line> create(@RequestBody Line line) {
 		writeLog(line);
-		return ResponseEntity.created(URI.create(String.format("/lines/%s", line.getMessage()))).body(line);
+		return ResponseEntity.created(URI.create(String.format("/lines/%s", line.getMessage()))).body(line); 
 	}
 
 //	@GetMapping(value = "/lines")
