@@ -15,7 +15,8 @@ And adding a request body as follows:
 }
 
 
-![imagen](https://user-images.githubusercontent.com/20845506/164090843-30cedcd4-6257-476b-89d9-bf3b268695d5.png)
+![imagen](https://user-images.githubusercontent.com/20845506/164093561-e8f8a477-04e1-4223-aaad-3b1c8c122e7d.png)
+
 
 Image that ilustrates a POST request configured to make a call to the endpoint
 
@@ -40,3 +41,10 @@ Finally there should be configured a POST request pointing to local as explained
 ![imagen](https://user-images.githubusercontent.com/20845506/164092873-238409f2-169b-4e16-9d02-62fec51055d9.png)
 
 Image related to POST request configured to point to local environment
+
+How to verify the log lines are linked as requested?
+For the OPTION 1, you can make a request copy the response body into a notepad file, then make another request and so on. By this way you will be able to identify that each line (block) is related to the previous one by the "previousHash" field.
+
+For the OPTION 2, you can do the same as described in OPTION 1 and additionally check the generated file in C:\demo\challenge.csv
+
+NOTE: An endpoint to retrieve all lines in file is in progress, but so far the mentioned options to verify the results are available
