@@ -42,6 +42,8 @@ Finally there should be configured a POST request pointing to local as explained
 
 Image related to POST request configured to point to local environment
 
+
+
 How to verify the log lines are linked as requested?
 
 For the OPTION 1, you can make a request copy the response body into a notepad file, then make another request and so on. By this way you will be able to identify that each line (block) is related to the previous one by the "previousHash" field.
